@@ -7,9 +7,9 @@
 	;
 	; Compiler options:
 	;
-	; -odc-motor-control.cof -mdc-motor-control.map --summary=default \
-	; --output=default main.p1 --chip=16F887 -P --runtime=default \
-	; --opt=default -N-1 -D__DEBUG=1 -g --asmlist \
+	; -odc_motor_control.cof -mdc_motor_control.map --summary=default \
+	; --output=default dc_motor_control.p1 --chip=16F887 -P \
+	; --runtime=default --opt=default -N-1 -D__DEBUG=1 -g --asmlist \
 	; --errformat=Error   [%n] %f; %l.%c %s --msgformat=Advisory[%n] %s \
 	; --warnformat=Warning [%n] %f; %l.%c %s
 	;

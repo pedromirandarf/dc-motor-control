@@ -1,5 +1,5 @@
 
-# 1 "C:\Users\PC-09\Desktop\PortableGit\ecai11\dc-motor-control\code\main.c"
+# 1 "C:\Users\Aluno\Desktop\PortableGit\pedro\dc-motor-control\code\dc_motor_control.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2204,21 +2204,34 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 6 "C:\Users\PC-09\Desktop\PortableGit\ecai11\dc-motor-control\code\main.c"
-int8_t global2 = 0;
-int16_t global3 = 0;
-uint8_t global4 = 0;
+# 5 "C:\Users\Aluno\Desktop\PortableGit\pedro\dc-motor-control\code\dc_motor_control.c"
+int8_t global2=0;
+int16_t global3=0;
+uint8_t global4=0;
+
 int global1 = 0;
+in16_t valor = 0;
+void main(void){
 
 
-void main(void) {
-TRISB = 0x00;
-ANSEL = 0;
-ANSELH = 0;
 
-while(1){
-PORTB = global4;
-global4++;
-_delay((unsigned long)((1000)*(4000000/4000.0)));
+
+TRISA |= (1<<0);
+ANSEL |= (1<<0);
+
+ADCON0 = 0x00;
+ADCON0 |= 0b01000001;
+
+ADCON1 = 0X00;
+ADCON1 |= (1<<7);
+
+
+while(1)
+{
+ADCON0 |= (1<<1);
+while(ADCON0 & (-(1<<1)))
+valor = (ADRESH<< 8) + (ADRESL);
+
+
 }
 }

@@ -1,11 +1,11 @@
 ### HEXMate logfile and output summary ###
 ### Memory Usage ###
  Unused memory ranges:
-  6h - FB1h
+  6h - FD3h
   
- dc-motor-control.hex ranges:
+ dc_motor_control.hex ranges:
   0h - 5h
-  FB2h - FFFh
+  FD4h - FFFh
   
 ### Hex Memory Map ###
  Legend:
@@ -18,7 +18,6 @@
   T = Trailing code
   & = Find & replace opcode
   X = Find & delete opcode
-  1 = dc-motor-control.hex
+  1 = dc_motor_control.hex
 00000000: 111111----------------------------------------------------------
-00000F80: --------------------------------------------------11111111111111
-00000FC0: 1111111111111111111111111111111111111111111111111111111111111111
+00000FC0: --------------------11111111111111111111111111111111111111111111

@@ -187,17 +187,14 @@ EECON1 equ 018Ch ;#
 # 3544 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f887.h"
 EECON2 equ 018Dh ;# 
 	FNROOT	_main
-	global	_global4
-	global	_PORTB
-_PORTB	set	0x6
-	global	_TRISB
-_TRISB	set	0x86
-	global	_ANSELH
-_ANSELH	set	0x189
+	global	_ADCON0
+_ADCON0	set	0x1F
+	global	_TRISA
+_TRISA	set	0x85
 	global	_ANSEL
 _ANSEL	set	0x188
 ; #config settings
-	file	"dc-motor-control.as"
+	file	"dc_motor_control.as"
 	line	#
 psect cinit,class=CODE,delta=2
 global start_initialization
@@ -220,7 +217,7 @@ _global4:
 _global2:
        ds      1
 
-	file	"dc-motor-control.as"
+	file	"dc_motor_control.as"
 	line	#
 ; Clear objects allocated to COMMON
 psect cinit,class=CODE,delta=2,merge=1
@@ -244,7 +241,6 @@ global __pcstackCOMMON
 __pcstackCOMMON:
 ?_main:	; 1 bytes @ 0x0
 ??_main:	; 1 bytes @ 0x0
-	ds	3
 ;!
 ;!Data Sizes:
 ;!    Strings     0
@@ -256,7 +252,7 @@ __pcstackCOMMON:
 ;!
 ;!Auto Spaces:
 ;!    Space          Size  Autos    Used
-;!    COMMON           14      3       9
+;!    COMMON           14      0       6
 ;!    BANK0            80      0       0
 ;!    BANK1            80      0       0
 ;!    BANK3            96      0       0
@@ -290,7 +286,7 @@ __pcstackCOMMON:
 ;!    None.
 
 ;;
-;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
 ;;
 
 ;!
@@ -299,8 +295,7 @@ __pcstackCOMMON:
 ;! ---------------------------------------------------------------------------------
 ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;! ---------------------------------------------------------------------------------
-;! (0) _main                                                 3     3      0       0
-;!                                              0 COMMON     3     3      0
+;! (0) _main                                                 0     0      0       0
 ;! ---------------------------------------------------------------------------------
 ;! Estimated maximum stack depth 0
 ;! ---------------------------------------------------------------------------------
@@ -317,13 +312,13 @@ __pcstackCOMMON:
 ;!EEDATA             100      0       0       0        0.0%
 ;!NULL                 0      0       0       0        0.0%
 ;!CODE                 0      0       0       0        0.0%
-;!COMMON               E      3       9       1       64.3%
+;!COMMON               E      0       6       1       42.9%
 ;!BITSFR0              0      0       0       1        0.0%
 ;!SFR0                 0      0       0       1        0.0%
 ;!BITSFR1              0      0       0       2        0.0%
 ;!SFR1                 0      0       0       2        0.0%
 ;!STACK                0      0       0       2        0.0%
-;!ABS                  0      0       9       3        0.0%
+;!ABS                  0      0       6       3        0.0%
 ;!BITBANK0            50      0       0       4        0.0%
 ;!BITSFR3              0      0       0       4        0.0%
 ;!SFR3                 0      0       0       4        0.0%
@@ -336,13 +331,13 @@ __pcstackCOMMON:
 ;!BANK3               60      0       0       9        0.0%
 ;!BITBANK2            60      0       0      10        0.0%
 ;!BANK2               60      0       0      11        0.0%
-;!DATA                 0      0       9      12        0.0%
+;!DATA                 0      0       6      12        0.0%
 
 	global	_main
 
 ;; *************** function _main *****************
 ;; Defined at:
-;;		line 12 in file "C:\Users\PC-09\Desktop\PortableGit\ecai11\dc-motor-control\code\main.c"
+;;		line 11 in file "C:\Users\Aluno\Desktop\PortableGit\pedro\dc-motor-control\code\dc_motor_control.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -350,7 +345,7 @@ __pcstackCOMMON:
 ;; Return value:  Size  Location     Type
 ;;                  1    wreg      void 
 ;; Registers used:
-;;		wreg, status,2, status,0
+;;		wreg, status,2
 ;; Tracked objects:
 ;;		On entry : B00/0
 ;;		On exit  : 0/0
@@ -358,9 +353,9 @@ __pcstackCOMMON:
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
 ;;      Locals:         0       0       0       0       0
-;;      Temps:          3       0       0       0       0
-;;      Totals:         3       0       0       0       0
-;;Total ram usage:        3 bytes
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       0       0       0       0
+;;Total ram usage:        0 bytes
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
@@ -368,89 +363,59 @@ __pcstackCOMMON:
 ;; This function uses a non-reentrant model
 ;;
 psect	maintext,global,class=CODE,delta=2,split=1,group=0
-	file	"C:\Users\PC-09\Desktop\PortableGit\ecai11\dc-motor-control\code\main.c"
-	line	12
+	file	"C:\Users\Aluno\Desktop\PortableGit\pedro\dc-motor-control\code\dc_motor_control.c"
+	line	11
 global __pmaintext
 __pmaintext:	;psect for function _main
 psect	maintext
-	file	"C:\Users\PC-09\Desktop\PortableGit\ecai11\dc-motor-control\code\main.c"
-	line	12
+	file	"C:\Users\Aluno\Desktop\PortableGit\pedro\dc-motor-control\code\dc_motor_control.c"
+	line	11
 	global	__size_of_main
 	__size_of_main	equ	__end_of_main-_main
 	
 _main:	
 ;incstack = 0
 	opt	stack 8
-; Regs used in _main: [wreg+status,2+status,0]
+; Regs used in _main: [wreg+status,2]
 	line	13
+;dc_motor_control.c: 13: while(1)
 	
-l486:	
-;main.c: 13: TRISB = 0x00;
+l19:	
+	line	17
+;dc_motor_control.c: 14: {
+;dc_motor_control.c: 17: TRISA |= (1<<0);
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
-	clrf	(134)^080h	;volatile
-	line	14
-;main.c: 14: ANSEL = 0;
+	bsf	(133)^080h+(0/8),(0)&7	;volatile
+	line	18
+;dc_motor_control.c: 18: ANSEL |= (1<<0);
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
-	clrf	(392)^0180h	;volatile
-	line	15
-;main.c: 15: ANSELH = 0;
-	clrf	(393)^0180h	;volatile
-	goto	l488
-	line	17
-;main.c: 17: while(1){
-	
-l23:	
-	line	18
-	
-l488:	
-;main.c: 18: PORTB = global4;
-	movf	(_global4),w
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(6)	;volatile
-	line	19
-	
-l490:	
-;main.c: 19: global4++;
-	movlw	low(01h)
-	movwf	(??_main+0)+0
-	movf	(??_main+0)+0,w
-	addwf	(_global4),f
+	bsf	(392)^0180h+(0/8),(0)&7	;volatile
 	line	20
 	
-l492:	
-;main.c: 20: _delay((unsigned long)((1000)*(4000000/4000.0)));
-	opt asmopt_push
-opt asmopt_off
-movlw  6
-movwf	((??_main+0)+0+2),f
-movlw	19
-movwf	((??_main+0)+0+1),f
-	movlw	173
-movwf	((??_main+0)+0),f
-	u17:
-decfsz	((??_main+0)+0),f
-	goto	u17
-	decfsz	((??_main+0)+0+1),f
-	goto	u17
-	decfsz	((??_main+0)+0+2),f
-	goto	u17
-	nop2
-opt asmopt_pop
-
-	goto	l488
+l482:	
+;dc_motor_control.c: 20: ADCON0 = 0x00;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	clrf	(31)	;volatile
 	line	21
 	
-l24:	
-	line	17
-	goto	l488
+l484:	
+;dc_motor_control.c: 21: ADCON0 = 0b01000001;
+	movlw	low(041h)
+	movwf	(31)	;volatile
+	goto	l19
+	line	25
 	
-l25:	
-	line	22
+l20:	
+	line	13
+	goto	l19
 	
-l26:	
+l21:	
+	line	26
+	
+l22:	
 	global	start
 	ljmp	start
 	opt stack 0
